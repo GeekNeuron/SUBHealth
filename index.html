@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Subtitle Health Checker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Advanced Subtitle Health Checker</h1>
+            <p>Upload your SRT file to find and fix common and structural errors.</p>
+        </header>
+
+        <div class="card" id="upload-card">
+            <input type="file" id="file-input" accept=".srt">
+            <label for="file-input" class="file-upload-label">Select SRT File</label>
+            <div id="encoding-fixer" class="hidden">
+                <p>Is the text unreadable (mojibake)?</p>
+                <button id="re-read-btn">Re-read with Farsi/Arabic (Windows) Encoding</button>
+            </div>
+        </div>
+
+        <div class="card hidden" id="results-card">
+            <div class="summary-bar">
+                <div class="summary-header">
+                    <h3>Analysis Results:</h3>
+                    <div id="summary-stats"></div>
+                </div>
+                <div class="action-buttons">
+                    <button id="fix-common-btn" class="action-btn fix-btn" title="Fixes common issues like overlaps and short durations">Fix Common Issues</button>
+                    <button id="remove-hi-btn" class="action-btn clean-btn" title="Removes text in brackets like [Music] or (Laughs)">Remove HI Tags</button>
+                    <button id="remove-styles-btn" class="action-btn clean-btn" title="Removes styling tags like <i>, <b>, etc.">Remove Style Tags</button>
+                </div>
+            </div>
+            <div id="subtitle-list">
+                </div>
+            <div class="save-section">
+                <label for="output-encoding">Output Encoding:</label>
+                <select id="output-encoding">
+                    <option value="UTF-8">UTF-8 (Recommended for web)</option>
+                    <option value="windows-1256">Windows-1256 (Legacy compatibility)</option>
+                </select>
+                <button id="save-btn">Save Fixed File</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
